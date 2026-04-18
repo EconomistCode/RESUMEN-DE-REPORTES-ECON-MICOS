@@ -1,0 +1,32 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Configuración de estilo
+sns.set_theme(style="whitegrid")
+
+# 1. Crear datos simulados
+np.random.seed(42)
+n_socios = 100
+
+data = {
+    'Nombre de la caja': ['Ahorro Iztapalapa'] * n_socios,
+    'Edad': np.random.randint(18, 70, n_socios),
+    'Género': np.random.choice(['Femenino', 'Masculino', 'Otro'], n_socios),
+    'Estado civil': np.random.choice(['Soltero/a', 'Casado/a', 'Unión Libre'], n_socios),
+    '¿A qué te dedicas?': np.random.choice(['Comercio', 'Servicios', 'Oficio', 'Profesionista'], n_socios),
+    '¿Tienes negocio?': np.random.choice(['Sí', 'No'], n_socios),
+    'Personas dependientes': np.random.randint(0, 6, n_socios),
+    'Nivel de estudios': np.random.choice(['Primaria', 'Secundaria', 'Preparatoria', 'Licenciatura'], n_socios),
+    'Ahorro Mensual': np.random.uniform(200, 3000, n_socios),
+    'Préstamo solicitado': np.random.choice(['Sí', 'No'], n_socios, p=[0.6, 0.4]),
+    'Confianza Comité (1-5)': np.random.randint(1, 6, n_socios),
+    'Accesibilidad (1-5)': np.random.randint(1, 6, n_socios),
+    'Suma Total Ahorrada': np.random.uniform(5000, 50000, n_socios), # Individual
+    'Crédito Informal previo': np.random.choice(['Sí', 'No'], n_socios, p=[0.3, 0.7]),
+    'Tasa Interés Mensual (%)': [2.5] * n_socios, # Variable de control
+    'Funcionamiento General (1-5)': np.random.randint(1, 6, n_socios)
+}
+
+df = pd.DataFrame(data)
